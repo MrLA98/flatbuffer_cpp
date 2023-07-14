@@ -1,0 +1,35 @@
+namespace MyGame.Example;
+
+enum Color : byte { RED = 0, GREEN, BLUE = 2 }
+
+table Vec3 {
+  x:float;
+  y:float;
+  z:float;
+}
+
+table Weapon {
+  name:string;
+  damage:short;
+}
+
+table Shield {
+  name:string;
+  defense:short;
+}
+
+union Equipment {
+  Shield,
+}
+
+table Monster {
+  pos:Vec3;
+  hp:short;
+  name:string;
+  inventory:[ubyte];
+  color:Color;
+  weapons:[Weapon];
+  equipped:Equipment;
+}
+
+root_type Monster;
